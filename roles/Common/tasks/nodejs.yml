@@ -1,0 +1,24 @@
+- name: Disable NodeJS 16  default version
+  ansible.builtin.shell: dnf module disable nodejs -y
+
+- name: Enable NodeJS 20 version
+  ansible.builtin.shell: dnf module enable n nodejs:20 -y
+
+- name: Copy MongoDb repo
+  ansible.builtin.copy:
+    src: mongodb-client
+    dest: /etc/yum.repos.d/mongo.repo
+
+- name: Copy Catalogue Service
+  ansible.builtin.copy:
+    src: catalogue.service
+    dest: /etc/systemd/system/catalogue.service
+
+- name: Install nodejs
+  ansible.builtin.dnf:
+    name: nodejs
+    state: installed
+
+- name: Import App pre requisites
+  ansible.builtin.include_task:
+    file: app-prereq.yml
