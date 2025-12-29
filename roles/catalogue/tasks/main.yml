@@ -3,18 +3,18 @@
     name: common
     tasks_from: nodejs
 
-- name:  Copy MongoDB repo file
-  ansible.builtin.template:
-    src: mongo.repo
-    dest: /etc/yum.repos.d/mongo.repo
-
-- name: Install Mongo client
-  ansible.builtin.dnf:
-    name: mongodb-mongosh
-    state: installed
-
-- name: Load Master Data
-  community.mongodb.mongodb_shell:
-    login_host: mongodb-{{ ENV }}.azdevopsvenkat.site
-    file: "/app/db/master-data.js"
-    idempotent: yes
+#- name:  Copy MongoDB repo file
+#  ansible.builtin.template:
+#    src: mongo.repo
+#    dest: /etc/yum.repos.d/mongo.repo
+#
+#- name: Install Mongo client
+#  ansible.builtin.dnf:
+#    name: mongodb-mongosh
+#    state: installed
+#
+#- name: Load Master Data
+#  community.mongodb.mongodb_shell:
+#    login_host: mongodb-{{ ENV }}.azdevopsvenkat.site
+#    file: "/app/db/master-data.js"
+#    idempotent: yes
