@@ -3,10 +3,10 @@
     name: common
     tasks_from: nodejs
 
-#- name:  Copy MongoDB repo file
-#  ansible.builtin.template:
-#    src: mongo.repo
-#    dest: /etc/yum.repos.d/mongo.repo
+- name:  Copy MongoDB repo file
+  ansible.builtin.copy:
+    src: mongo.repo
+    dest: /etc/yum.repos.d/mongo.repo
 #
 #- name: Install Mongo client
 #  ansible.builtin.dnf:
