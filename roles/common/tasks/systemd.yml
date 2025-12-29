@@ -1,0 +1,13 @@
+- name: Setup system-D service file
+  ansible.builtin.copy:
+    src: "{{ component_name }}.service"
+    dest: /etc/systemd/system/{{ component_name }}.service
+
+- name: Start Application
+  ansible.builtin.systemd:
+    name: "{{ component_name }}"
+    state: restarted
+    enabled: true
+    daemon_reload: yes
+
+
