@@ -17,7 +17,7 @@
 - name: Set MySQL root password
   community.mysql.mysql_user:
     name: root
-    host: mysql-dev.azdevopsvenkat.site
+    host: localhost
     password: RoboShop@1
     login_unix_socket: /var/lib/mysql/mysql.sock
     check_implicit_admin: true
