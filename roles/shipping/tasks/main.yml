@@ -1,0 +1,24 @@
+- name: Import NodeJS Common Role
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: java
+
+- name: Install MySQL Client
+  ansible.builtin.dnf:
+    name:
+      - mysql
+      - python3-mysqlclient
+    state: installed
+
+- name: Load Schema
+  community.mysql.mysql_db:
+    state: import
+    name: all
+    target: /app/db/{{ item }}.sql
+    login_host: mysql-dev.azdevopsvenkat.site
+    login_user: root
+    login_password: RoboShop@1
+  loop:
+    - schema
+    - app-user
+    - master-data

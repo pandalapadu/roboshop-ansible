@@ -9,8 +9,15 @@
     state: restarted
     enabled: true
 
-- name: Set MySQL Password
-  ansible.builtin.shell: mysql_secure_installation --set-root-pass Roboshop@1
+- name: Set MySQL root password
+  community.mysql.mysql_user:
+    name: root
+    host: mysql-dev.azdevopsvenkat.site
+    password: RoboShop@1
+    login_unix_socket: /var/lib/mysql/mysql.sock
+    check_implicit_admin: true
+    state: present
+
 
 #- name: Install Prometheus node exporter
 #  ansible.builtin.include_role:
