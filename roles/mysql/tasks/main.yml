@@ -9,6 +9,11 @@
     state: restarted
     enabled: true
 
+- name: Install Python MySQL dependency (RHEL)
+  yum:
+    name: python3-PyMySQL
+    state: present
+
 - name: Set MySQL root password
   community.mysql.mysql_user:
     name: root
