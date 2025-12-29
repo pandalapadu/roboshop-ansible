@@ -10,14 +10,14 @@
       - python3-PyMySQL
     state: installed
 
-- name: Load Schema locally
+- name: Load Schema remotely
   community.mysql.mysql_db:
     state: import
     name: all
     target: /app/db/{{ item }}.sql
+    login_host: mysql-dev.azdevopsvenkat.site
     login_user: root
     login_password: RoboShop@1
-    login_unix_socket: /var/lib/mysql/mysql.sock
   loop:
     - schema
     - app-user
