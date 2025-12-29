@@ -7,7 +7,6 @@
   ansible.builtin.dnf:
     name:
       - mysql
-      - python3-mysqlclient
     state: installed
 
 - name: Load Schema
