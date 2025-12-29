@@ -2,4 +2,6 @@
   hosts: all
   become: true
   roles:
+    - role: common
+      task_from: nodejs
     - "{{ app_name }}"
