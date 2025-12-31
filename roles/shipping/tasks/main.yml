@@ -21,7 +21,7 @@
     login_host: mysql-dev.azdevopsvenkat.site
     login_user: root
     login_password: RoboShop@1
-    login_client: PyMySQL
+
 
 - name: Load app-user Schema remotely
   community.mysql.mysql_db:
@@ -31,7 +31,7 @@
     login_host: mysql-dev.azdevopsvenkat.site
     login_user: root
     login_password: RoboShop@1
-    login_client: PyMySQL
+
 
 - name: Load master-data Schema remotely
   community.mysql.mysql_db:
@@ -41,4 +41,3 @@
     login_host: mysql-dev.azdevopsvenkat.site
     login_user: root
     login_password: RoboShop@1
-    login_client: PyMySQL
